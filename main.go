@@ -10,7 +10,6 @@ package main
 import (
 	"context"
 	"errors"
-	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -19,8 +18,6 @@ import (
 	"strconv"
 	"syscall"
 	"time"
-
-	"github.com/joho/godotenv"
 )
 
 const (
@@ -37,13 +34,13 @@ func getenv(key, def string) string {
 
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lmsgprefix)
-	// Load the .env file in the current directory
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalf("Error loading .env file: %v", err)
-	}
+	// // Load the .env file in the current directory
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	log.Fatalf("Error loading .env file: %v", err)
+	// }
 
-	fmt.Print("envs loaded successfully")
+	// fmt.Print("envs loaded successfully")
 
 	cfg := loadRabbitConfig()
 	port := getenv("PORT", "8080")
